@@ -18,8 +18,8 @@ def MaxRandomArray(count,num):
     print(mat[x,:]," наибольшая сумма массива - ", s[x])
 
 print("Введите количество массивов: ")
-mas = 5
+mas = input()
 print("Введите количество элементов в массиве: ")
-col = 5
+col = input()
 
 MaxRandomArray(int(mas), int(col))
