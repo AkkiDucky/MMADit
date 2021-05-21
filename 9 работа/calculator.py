@@ -54,46 +54,35 @@ class App(QWidget):
         self.resize(200, 100)
         self.show()
     def plus(self):
-        try:
-            a = float(self.one.text())
-            b = float(self.two.text())
-            self.result.setText(str(a+b))
-        except:
-            self.result.setText('введите числа')
+        self.calculate('plus', self.one.text(), self.two.text())
     def minus(self):
-        try:
-            a = float(self.one.text())
-            b = float(self.two.text())
-            self.result.setText(str(a-b))
-        except:
-            self.result.setText('введите числа')
+        self.calculate('minus', self.one.text(), self.two.text())
     def multiply(self):
-        try:
-            a = float(self.one.text())
-            b = float(self.two.text())
-            self.result.setText(str(a*b))
-        except:
-            self.result.setText('введите числа')
+        self.calculate('multiply', self.one.text(), self.two.text())
     def divide(self):
+        self.calculate('divide', self.one.text(), self.two.text())
+    def mul(self):
+        self.calculate('mul', self.one.text(), self.two.text())
+    def calculate(self, operation, a, b):
         try:
-            a = float(self.one.text())
-            b = float(self.two.text())
-            if b == 0.0:
-                self.result.setText('нельзя делить на ноль')
-            else:
-                self.result.setText(str(a/b))
+            a = float(a)
+            b = float(b)
         except:
             self.result.setText('введите числа')
-    def mul(self):
-        try:
-            a = float(self.one.text())
-            b = float(self.two.text())
+            return
+        if operation == 'plus':
+            self.result.setText(str(a+b))
+        elif operation == 'minus':
+            self.result.setText(str(a-b))
+        elif operation == 'multiply':
+            self.result.setText(str(a*b))
+        elif operation == 'divide':
+            self.result.setText(str(a/b))
+        elif operation == 'mul':
             res = a
             for i in range(int(b)-1):
                 res = res*a
             self.result.setText(str(res))
-        except:
-            self.result.setText('введите числа')
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
