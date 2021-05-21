@@ -19,4 +19,4 @@ print('YES' if re.match("\d{2}\.\d{2}\.\d{4}",val) else 'NO')
 
 val = input()
 
-print('YES' if re.match("\w*\.(png|jpeg|jpg|gif)",val) else 'NO')
+print('YES' if re.match("\w+\.(png|jpeg|jpg|gif)",val) else 'NO')
